@@ -32,5 +32,7 @@ _Does the first programming language learned influence whether someone prefersPy
 We will use Logisitic regression as we have a binary outcome of either Python or R, with that we are able to see the effect of the confounding variables. 
 
 #### Discuss the aspects of the UBC Office of Research Ethics document on Using Online Surveys that are relevant to your proposed survey.
-
+- We will not be collecting any names in our surveys 
+- Our survey will be anonymous
+- Our Survey will not include any IP address that could be used to identify a person
 
