@@ -14,7 +14,7 @@ To increase the chances that your contributions are incorporated into the projec
 
 Now, you are just waiting on us. The project administrators will endeavor to reply to issues and review pull requests within three business days. For pull requests, we may recommend changes or improvements to be made before accepting your work.  
 
-For a pull request to be merged it must be accepted by __ of the project administrators identified below.  
+For a pull request to be merged it must be accepted by two of the project administrators identified below.  
 
 | Administrator | Github Handle |
 |--------------|---------------|
