@@ -13,7 +13,8 @@ _Does the first programming language learned influence whether someone prefersPy
 
 
 #### Chosen Questions:
-
+* Which language do you prefer for data analysis:
+- Python or R. This is the response question.
 * What is the first computing language you learned?
   -  This survey question explores the influence of specific languages for the preference of Python or R.
 
