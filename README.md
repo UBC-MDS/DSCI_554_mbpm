@@ -1,5 +1,8 @@
-# DSCI_554_mbpm
-Group project for DSCI 554  
+# R2Py2
+
+A Survey of:
+
+_Does the first programming language someone learns influence whether they prefer R or Python (or have no preference)?_
 
 | Team Members | Github Handle |
 |--------------|---------------|
