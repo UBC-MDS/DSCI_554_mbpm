@@ -11,11 +11,4 @@ As maintainers of this project, we have the right and responsibility to remove, 
 
 As authors of this project, we are responsible for clarifying the right etiquette we expect and we will take action for any unacceptable behavior. As authors of this project, we have the right and responsibility to remove any commits, comments, code issues and other contributions that is not aligned to our core values.
 
-This code of conduct was partly adapted from this these sources: -Contributor Covenant, version 1.4, availabe at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
-
-
-
-
-```R
-
-```
+This code of conduct was partly adapted from this these sources: -Contributor Covenant, version 1.4, availabe at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html  
