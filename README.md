@@ -2,7 +2,7 @@
 
 A Survey of:
 
-_Does the first programming language learned influence whether someone prefersPython or R when it comes to data analysis._
+_Does the first programming language learned influence whether someone prefers Python or R when it comes to data analysis?_
 
 | Team Members | Github Handle |
 |--------------|---------------|
