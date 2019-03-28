@@ -29,7 +29,7 @@ _Does the first programming language learned influence whether someone prefers P
 
 #### Analysis of the survey results we plan to employ.
 
-We will use Logisitic regression as we have a binary outcome of either Python or R, with that we are able to see the effect of the confounding variables. 
+We plan to use logistic regression to analysis how someone's preference to use R or Python for a data analysis task is influenced by the first programming language learned they have learned, while also controlling for confounding effects. We chose a logisitic regression because we have a binary response variable, either R or Python, and will the other survery question answers as explanatory variables.
 
 #### Discuss the aspects of the UBC Office of Research Ethics document on Using Online Surveys that are relevant to your proposed survey.
 - We will not be collecting any names in our surveys 
