@@ -17,11 +17,11 @@ _Does the first programming language learned influence whether someone prefers P
 1. What is the first computing language you learned?
   -  This survey question explores the influence of specific languages for the preference of Python or R.
 2. What was your undergraduate degree in? 
-  - Educational background will influence what programming language one prefers to learn first.
+  - Educational background might influence what programming language one prefers to learn first.
 3. What is the typical size of your analysis projects? Small(10K rows), Medium(10-1M Rows), or large (1m+ rows) ?
   - The size of a data analysis project might influence the language a person tends to use because of difference in speed and ease of setup/use.  
-4. Which language do you think has better documentation when it comes to Data Analysis?
-  - We believe having clear and concise documentation aids in the ease of applying data analysis principles and decreases the learning curve of the language. If clear examples of analysis using the languages of R or Python are not given, the user might tend to prefer to choose the one they believe has better documentation that helps them through the process.  
+4. Which language do you think has better documentation when it comes to its data analysis packages?
+  - Having clear and concise documentation aids in the ease of wrangling data and decreases the learning curve of the language. If clear examples of analysis using the languages of R or Python are not given, the user might tend to prefer to choose the one they believe has better documentation that helps them through the process.  
 
 ## Plan of Survey Analysis.
 
