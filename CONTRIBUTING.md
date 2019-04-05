@@ -6,15 +6,17 @@ By contributing, you agree to abide by our [code of conduct](CONDUCT.md).
 
 ## How to Contribute  
 
-The easiest way to contribute is to file an issue or open a pull request telling us about a spelling mistake, some awkward wording, a factual error, or an update you think is worth while.  
+Team members will be assigned project task each week using `GitHub's` issue tracker.
 
-To increase the chances that your contributions are incorporated into the project follow the following guidelines:  
+All contributions by team members will be made by working on a local version, either a forked repository or personal branch, and then submitting a pull request for the group to review. If there are suggestions for improvements a review of the pull request will be made to inform the author and the rest of the group.  
+
+To increase the chances that the contributions are incorporated into the project we agree on the following guidelines:  
 1. Meaningful `commit` messages  
 2. Any code follows the [tidyverse](https://style.tidyverse.org/) style guide  
 
-Now, you are just waiting on us. The project administrators will endeavor to reply to issues and review pull requests within three business days. For pull requests, we may recommend changes or improvements to be made before accepting your work.  
+The group will endeavor to reply to issues and review pull requests within three business days.  
 
-For a pull request to be merged it must be accepted by two of the project administrators identified below.  
+For a pull request to be merged it must be reviewed and accepted by two other group members identified below.  
 
 | Administrator | Github Handle |
 |--------------|---------------|
