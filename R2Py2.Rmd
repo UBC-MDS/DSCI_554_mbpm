@@ -1,7 +1,11 @@
 ---
 title: "Exploratory Data Analysis (EDA)"
-output: github_document
-
+output:
+  pdf_document:
+  md_document: 
+  html_document:
+  github_document: 
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
@@ -127,7 +131,7 @@ A large proportion of respondents (64%) believed Python had better documentation
 
 ```{r plots}
 #plots
-plot1 <- survey %>% ggplot(aes(x = Q1)) +
+plot1<-survey %>% ggplot(aes(x = Q1)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), width = 0.5, fill = 'salmon') +
   geom_text(aes(y = ((..count..)/sum(..count..)),
                 label = scales::percent((..count..)/sum(..count..))),
@@ -140,7 +144,7 @@ plot1 <- survey %>% ggplot(aes(x = Q1)) +
 
 # More people prefer python
 
-plot2 <- survey %>% ggplot(aes(x = Q2)) +
+plot2<-survey %>% ggplot(aes(x = Q2)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
@@ -151,7 +155,7 @@ plot2 <- survey %>% ggplot(aes(x = Q2)) +
 
 #Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
 
-plot3 <- survey %>% ggplot(aes(x = Q3)) +
+plot3<-survey %>% ggplot(aes(x = Q3)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
@@ -161,7 +165,7 @@ plot3 <- survey %>% ggplot(aes(x = Q3)) +
 
 #Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
 
-plot4 <- survey %>% ggplot(aes(x = Q4)) +
+plot4<-survey %>% ggplot(aes(x = Q4)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
@@ -171,7 +175,7 @@ plot4 <- survey %>% ggplot(aes(x = Q4)) +
 
 #It seems more people prefer python no matter the size of the data set
 
-plot5 <- survey %>% ggplot(aes(x = Q5)) +
+plot5<-survey %>% ggplot(aes(x = Q5)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
