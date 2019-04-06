@@ -94,22 +94,22 @@ A large proportion of respondents (64%) believed Python had better documentation
 Plots
 -----
 
-![](R2Py2_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](R2Py2_files/figure-markdown_github/plots-1.png)
 
-In plot1, we see that more people prefer python
+More people prefer python
 
-![](R2Py2_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](R2Py2_files/figure-markdown_github/plots2-1.png)
 
-In plot2,those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
+Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
 
-![](R2Py2_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](R2Py2_files/figure-markdown_github/plots3-1.png)
 
-In plot3,those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python.
+Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python.
 
-![](R2Py2_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](R2Py2_files/figure-markdown_github/plots4-1.png)
 
-In plot4,it seems more people prefer python no matter the size of the data set
+It seems more people prefer python no matter the size of the data set
 
-![](R2Py2_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](R2Py2_files/figure-markdown_github/plots5-1.png)
 
-In plot5,it seems highly correlated that people prefer to choose the language that they believe has better documentation.
+It seems highly correlated that people prefer to choose the language that they believe has better documentation.
