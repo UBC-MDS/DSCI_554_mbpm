@@ -4,7 +4,7 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r, include=FALSE }
@@ -19,10 +19,12 @@ library(tidyverse)
 - Maninder Kohli 
 - Phuntsok Tseten  
 
+The goal of this analysis is to explore the survey data we collected from our MDS 2018-2019 Cohort, 554 TAs and lab instructor. We wanted to understand  if undergraduate degree, size of analysis projects, and documentations of packages influenced preference for a particular computing language. We wanted to understand what factors influenced our response(i.e.the preference of a particular language) directly and what were the confounding factors. 
+
 
 ## Survey Questions Being Explored
 
-  - Q1 What is your preffered language to use when doing data analysis?
+  - Q1 What is your preferred language to use when doing data analysis?
   - Q2 What is the first computing language you learned?
   - Q3 What was your undergraduate degree in?
   - Q4 What is the typical size of your analysis projects? Small(10K rows), Medium(10-1M rows), or large (1m+ rows)?
@@ -124,7 +126,7 @@ A large proportion of respondents (64%) believed Python had better documentation
 
 ```{r plots, echo = FALSE}
 #plots
-survey %>% ggplot(aes(x = Q1)) +
+plot1<-survey %>% ggplot(aes(x = Q1)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), width = 0.5, fill = 'salmon') +
   geom_text(aes(y = ((..count..)/sum(..count..)),
                 label = scales::percent((..count..)/sum(..count..))),
@@ -133,10 +135,13 @@ survey %>% ggplot(aes(x = Q1)) +
   labs(title = 'Which Language is more prefered for Data Analysis?',
        x = 'Language',
        y='%') 
+plot1
+```
 
-# More people prefer python
+More people prefer python
 
-survey %>% ggplot(aes(x = Q2)) +
+```{r plots2}
+plot2<-survey %>% ggplot(aes(x = Q2)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
@@ -144,39 +149,50 @@ survey %>% ggplot(aes(x = Q2)) +
        x = 'Language',
        y = 'Count')+
   coord_flip()
+plot2
+```
 
-#Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
+Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
 
-survey %>% ggplot(aes(x = Q3)) +
+```{r plots3}
+plot3<-survey %>% ggplot(aes(x = Q3)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
   labs(title = "What is your undergraduate degree in?",
        x = 'Major',
        y = 'Count')
+plot3
+```
 
-#Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
+Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
 
-survey %>% ggplot(aes(x = Q4)) +
+```{r plots4}
+plot4<-survey %>% ggplot(aes(x = Q4)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
   labs(title = "What is the size of your typical data set?",
        x = 'Size',
        y = 'Count')
+plot4
+```
 
-#It seems more people prefer python no matter the size of the data set
+It seems more people prefer python no matter the size of the data set
 
-survey %>% ggplot(aes(x = Q5)) +
+```{r plots5}
+plot5<-survey %>% ggplot(aes(x = Q5)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
   scale_fill_discrete("Prefers:") +
   labs(title = "Which language has better documentation of data analysis packages??",
        x = 'Language',
        y = 'Count')
-
-# It seems highly correlated that people prefer to choose the language that they believe has better documentation.
-
+plot5
 ```
+
+It seems highly correlated that people prefer to choose the language that they believe has better documentation.
+
+
 
 
