@@ -1,10 +1,10 @@
 ---
 title: "Exploratory Data Analysis (EDA)"
 output:
+  github_document:
+    df_print: paged
   pdf_document:
-  md_document: 
-  html_document:
-  github_document: 
+  md_document:
 urlcolor: blue
 ---
 
@@ -24,7 +24,7 @@ library(tidyverse)
 - Maninder Kohli 
 - Phuntsok Tseten  
 
-The goal of this analysis is to explore the survey data we collected from our MDS 2018-2019 Cohort. We wanted to understand  if undergraduate degree, size of analysis projects, and documentations of packages influenced preference for a particular computing language. We wanted to understand what factors influenced our response(i.e.the preference of a particular language) directly and what were the confounding factors. 
+The goal of this analysis is to explore the survey data we collected from our MDS 2018-2019 Cohort, 554 TAs and lab instructor. We wanted to understand  if undergraduate degree, size of analysis projects, and documentations of packages influenced preference for a particular computing language. We wanted to understand what factors influenced our response(i.e.the preference of a particular language) directly and what were the confounding factors. 
 
 
 ## Survey Questions Being Explored
