@@ -1,11 +1,6 @@
 ---
 title: "Exploratory Data Analysis (EDA)"
-output:
-  github_document:
-    df_print: paged
-  pdf_document:
-  md_document:
-urlcolor: blue
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -140,10 +135,12 @@ plot1<-survey %>% ggplot(aes(x = Q1)) +
   labs(title = 'Which Language is more prefered for Data Analysis?',
        x = 'Language',
        y='%') 
+plot1
+```
 
+More people prefer python
 
-# More people prefer python
-
+```{r plots2}
 plot2<-survey %>% ggplot(aes(x = Q2)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
@@ -152,9 +149,12 @@ plot2<-survey %>% ggplot(aes(x = Q2)) +
        x = 'Language',
        y = 'Count')+
   coord_flip()
+plot2
+```
 
-#Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
+Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
 
+```{r plots3}
 plot3<-survey %>% ggplot(aes(x = Q3)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
@@ -162,9 +162,12 @@ plot3<-survey %>% ggplot(aes(x = Q3)) +
   labs(title = "What is your undergraduate degree in?",
        x = 'Major',
        y = 'Count')
+plot3
+```
 
-#Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
+Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
 
+```{r plots4}
 plot4<-survey %>% ggplot(aes(x = Q4)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
@@ -172,9 +175,12 @@ plot4<-survey %>% ggplot(aes(x = Q4)) +
   labs(title = "What is the size of your typical data set?",
        x = 'Size',
        y = 'Count')
+plot4
+```
 
-#It seems more people prefer python no matter the size of the data set
+It seems more people prefer python no matter the size of the data set
 
+```{r plots5}
 plot5<-survey %>% ggplot(aes(x = Q5)) +
   geom_bar(aes(fill = Q1), stat = 'count') +
   theme_bw() +
@@ -182,39 +188,11 @@ plot5<-survey %>% ggplot(aes(x = Q5)) +
   labs(title = "Which language has better documentation of data analysis packages??",
        x = 'Language',
        y = 'Count')
-
-# It seems highly correlated that people prefer to choose the language that they believe has better documentation.
-
-```
-
-```{r, echo=FALSE}
-plot1
-```
-
-In plot1, we see that more people prefer python
-
-```{r, echo=FALSE}
-plot2
-```
-
-In plot2,those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
-
-```{r, echo=FALSE}
-plot3
-```
-
-In plot3,those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python.
-
-```{r, echo=FALSE}
-plot4
-```
-
-In plot4,it seems more people prefer python no matter the size of the data set
-
-```{r, echo=FALSE}
 plot5
 ```
 
-In plot5,it seems highly correlated that people prefer to choose the language that they believe has better documentation.
+It seems highly correlated that people prefer to choose the language that they believe has better documentation.
+
+
 
 
