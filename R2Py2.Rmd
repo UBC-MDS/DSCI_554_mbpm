@@ -122,7 +122,7 @@ A large proportion of respondents (64%) believed Python had better documentation
 
 
 
-```{r plots}
+```{r plots, echo = FALSE}
 #plots
 survey %>% ggplot(aes(x = Q1)) +
   geom_bar(aes(y = (..count..)/sum(..count..)), width = 0.5, fill = 'salmon') +
