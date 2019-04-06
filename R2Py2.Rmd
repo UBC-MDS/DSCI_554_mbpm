@@ -9,7 +9,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, include=FALSE }
 library(tidyverse)
-
 ```
 
 
@@ -123,8 +122,61 @@ A large proportion of respondents (64%) believed Python had better documentation
 
 
 
-```{r pressure, echo=FALSE}
+```{r plots}
 #plots
+survey %>% ggplot(aes(x = Q1)) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), width = 0.5, fill = 'salmon') +
+  geom_text(aes(y = ((..count..)/sum(..count..)),
+                label = scales::percent((..count..)/sum(..count..))),
+            stat = "count", vjust = -0.25, width = 0.5) +
+  theme_bw() +
+  labs(title = 'Which Language is more prefered for Data Analysis?',
+       x = 'Language',
+       y='%') 
+
+# More people prefer python
+
+survey %>% ggplot(aes(x = Q2)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "What was the first computing language you learned?",
+       x = 'Language',
+       y = 'Count')+
+  coord_flip()
+
+#Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R
+
+survey %>% ggplot(aes(x = Q3)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "What is your undergraduate degree in?",
+       x = 'Major',
+       y = 'Count')
+
+#Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
+
+survey %>% ggplot(aes(x = Q4)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "What is the size of your typical data set?",
+       x = 'Size',
+       y = 'Count')
+
+#It seems more people prefer python no matter the size of the data set
+
+survey %>% ggplot(aes(x = Q5)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "Which language has better documentation of data analysis packages??",
+       x = 'Language',
+       y = 'Count')
+
+# It seems highly correlated that people prefer to choose the language that they believe has better documentation.
+
 ```
 
 
