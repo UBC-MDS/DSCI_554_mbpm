@@ -1,13 +1,13 @@
-Exploratory Data Analysis (EDA)
+# Exploratory Data Analysis (EDA)
 
-## Team Members
+### Team Members
 
   - Brenden Everitt
   - Miliban Keyim  
   - Maninder Kohli
   - Phuntsok Tseten
 
-## Survey Questions Being Explored
+### Survey Questions Being Explored
 
   - Q1 What is your preffered language to use when doing data analysis?
   - Q2 What is the first computing language you learned?
@@ -17,11 +17,11 @@ Exploratory Data Analysis (EDA)
   - Q5 Which language do you think has better documentation when it
     comes to its data analysis packages?
 
-## Exploratory Data Analysis (EDA)
+### Exploratory Data Analysis (EDA)
 
 Importing Data and Data Wrangling
 
-## Analyzing Summary Data
+### Analyzing Summary Data
 
 Summary of all survey data
 
@@ -129,4 +129,9 @@ documentation.
 
 ## Plots
 
-![](R2Py2_files/figure-gfm/plots-1.png)<!-- -->![](R2Py2_files/figure-gfm/plots-2.png)<!-- -->![](R2Py2_files/figure-gfm/plots-3.png)<!-- -->![](R2Py2_files/figure-gfm/plots-4.png)<!-- -->![](R2Py2_files/figure-gfm/plots-5.png)<!-- -->
+![](reports/EDA_summary_plots_files/figure-gfm/plots-1.png)
+![](reports/EDA_summary_plots_files/figure-gfm/plots2-1.png)
+![](reports/EDA_summary_plots_files/figure-gfm/plots3-1.png)
+![](reports/EDA_summary_plots_files/figure-gfm/plots4-1.png)
+![](reports/EDA_summary_plots_files/figure-gfm/plots5-1.png)
+
