@@ -1,9 +1,11 @@
 ---
 title: "Exploratory Data Analysis (EDA)"
 output:
-  md_document: 
+  github_document:
+    df_print: paged
   pdf_document:
-  github_document: 
+  md_document:
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
