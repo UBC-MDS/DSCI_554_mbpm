@@ -1,0 +1,130 @@
+---
+title: "Exploratory Data Analysis (EDA)"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE }
+library(tidyverse)
+
+```
+
+
+
+## Team Members
+- Brenden Everitt 
+- Miliban Keyim  
+- Maninder Kohli 
+- Phuntsok Tseten  
+
+
+## Survey Questions Being Explored
+
+  - Q1 What is your preffered language to use when doing data analysis?
+  - Q2 What is the first computing language you learned?
+  - Q3 What was your undergraduate degree in?
+  - Q4 What is the typical size of your analysis projects? Small(10K rows), Medium(10-1M rows), or large (1m+ rows)?
+  - Q5 Which language do you think has better documentation when it comes to its data analysis packages?
+
+
+## Exploratory Data Analysis (EDA)
+
+Importing Data and Data Wrangling
+
+```{r, include=FALSE}
+# Import data
+raw <- read_csv("https://raw.github.ubc.ca/MDS-2018-19/DSCI_554_R2Py2_results/master/DSCI_554_R2Py2.csv?token=AAAGiR15X4PWpGVkb0ojAtjTWSq1Sppwks5csTi9wA%3D%3D")
+
+
+# Data wrangle 
+survey <- raw %>% 
+  slice(-c(1:2)) %>% 
+  select(contains("Q")) %>% 
+  mutate(Q4=str_extract(Q4, "(^[A-Za-z]+)")) %>% 
+  mutate(Q1 = as.factor(Q1),
+         Q2 = as.factor(Q2),
+         Q3 = as.factor(Q3),
+         Q4 = as.factor(Q4),
+         Q5 = as.factor(Q5))
+
+survey <- as.data.frame(survey)
+```
+
+## Analyzing Summary Data
+
+Summary of all survey data 
+```{r}
+survey_summary <- summary(survey)
+survey_summary
+
+```
+
+Q1 What is your preffered language to use when doing data analysis?
+```{r}
+
+q1 <- table(survey$Q1)
+q1 <- round(prop.table(q1), digits=2)
+q1  
+
+```
+65% of respondents preferred using Python vs R for data analysis. 
+
+
+Q2 What is the first computing language you learned?
+```{r}
+
+q2 <- table(survey$Q2)
+q2 <- round(prop.table(q2), digits=2)
+q2  
+
+```
+Majority of the survey respondents were split between C/C++/C#, Other and Python at 20% as the first programming language used.
+
+
+Q3 What was your undergraduate degree in?
+```{r}
+
+q3 <- table(survey$Q3)
+q3 <- round(prop.table(q3), digits=2)
+q3  
+
+```
+50% of the respondents had an undergraduate degree in either Math/Statstics or Other Science at 25% each.
+
+
+Q4 What is the typical size of your analysis projects? Small(10K rows), Medium(10-1M rows), or large (1m+ rows)?
+```{r}
+
+q4 <- table(survey$Q4)
+q4 <- round(prop.table(q4), digits=2)
+q4  
+
+```
+Over half of the respondents had experience with small analysis projects.
+
+
+Q5 Which language do you think has better documentation when it comes to its data analysis packages?
+```{r}
+
+q5 <- table(survey$Q5)
+q5 <- round(prop.table(q5), digits=2)
+q5  
+
+```
+A large propprtion of respondents (64%) though Python had better documentation.
+
+
+
+
+## Plots
+
+
+
+```{r pressure, echo=FALSE}
+#plots
+```
+
+
