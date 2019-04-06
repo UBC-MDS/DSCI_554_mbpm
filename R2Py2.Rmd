@@ -114,7 +114,7 @@ q5 <- round(prop.table(q5), digits=2)
 q5  
 
 ```
-A large propprtion of respondents (64%) though Python had better documentation.
+A large proportion of respondents (64%) believed Python had better documentation.
 
 
 
