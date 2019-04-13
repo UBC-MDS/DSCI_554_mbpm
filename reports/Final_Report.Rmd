@@ -8,17 +8,19 @@ output: github_document
 library(tidyverse)
 library(broom)
 library(knitr)
+options(knitr.table.format = 'markdown')
+
 ```
 
 ### Analysis Question  
 
-Python and R are the two dominate Data Science programming languages, we set out determine how people's background influenced their choice. In particular we wanted to answer the following question:  
+Python and R are the two dominant Data Science programming languages, we set out to determine how people's background influenced their choice. In particular, we wanted to answer the following question:  
 
 > _Does the first programming language learned influence whether someone prefers Python or R when it comes to data analysis?_  
 
 ### Potentinal Confounders  
 
-We identified the following potential counfounding variables:  
+We identified the following potential confounding variables:  
 
 1. What was your undergraduate degree in?  
     - Someone's educational background could have a large influence on their preferred programming language. 
@@ -50,9 +52,9 @@ survey <- as.data.frame(survey)
 
 ##### Summary of survey results:  
 
-```{r summary, echo=FALSE}
+```{r summary, echo=TRUE}
 survey_summary <- summary(survey)
-survey_summary %>% kable(caption = "Question Results")
+survey_summary %>% kable()
 ```  
 
 
@@ -70,7 +72,7 @@ plot1<-survey %>% ggplot(aes(x = Q1)) +
 plot1
 ```  
 
-The majority, 65% of respondents, preferred to use Python over R for a data analysis task.  
+The majority of respondents (65%) preferred to use Python over R for a data analysis task. 
 
 ```{r firstLang, echo=FALSE}
 plot2<- ggplot(survey, aes(x=Q2, y=Q1) ) +
@@ -85,7 +87,7 @@ plot2
 	
 ```
 
-Those that learned a `dev_lang` (contains C/C++/C#/Java/Javascript) seem to almost always prefer python over R. The majority of the survey respondents were split between those that learned Python and `web_dev_lang` languages first. As this heatmap was faceted with which language people believe have better documentation, this seems to show that more people prefer the language they believe have better documentation (the majority in this case, is Python).
+Those that learned a `dev_lang` (either C/C++/C#/Java/Javascript) seem to prefer python over R most of the time. The majority of the survey respondents were split between those that learned Python and `web_dev_lang` languages first. This heatmap was faceted with which the language majority of people believe have better documentation. This seems to indicate that more people prefer the language they believe has better documentation (in this case, Python).
 
 ```{r undergrad, echo=FALSE}
 plot3<- ggplot(survey, aes(x=Q3, y=Q1) ) +
@@ -98,7 +100,7 @@ plot3
 
 ```  
 
-Those with a Business, Math/Statistics/ or Computer Science background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
+This plot seems to indicate that those with a Business, Math/Statistics/ or Computer Science backgrounds preferred Python while those with Sciences/Other degrees preferred R over Python.
 
 ```{r size, echo=FALSE}
 plot4<-survey %>% ggplot(aes(x = Q4)) +
@@ -111,7 +113,7 @@ plot4<-survey %>% ggplot(aes(x = Q4)) +
 plot4
 ```  
 
-The size of the data set that people tend to work with for a data analysis task appears to have no influence on the language a person prefers.  
+The size of the data worked with for a data analysis task appears to show no influence on the language a person prefers.
 
 ```{r docs, echo=FALSE}
 plot5<-survey %>% ggplot(aes(x = Q5)) +
@@ -172,8 +174,10 @@ log_reg2 %>% tidy() %>% kable()
 
 ```  
 
-The first programming language that a person learned has a varying impact impact on whether they prefer `R` or `Python`, for a data analysis task. For example, if a person learned `Python` first, the log-odds that they prefer `Python` over `R` increase by 1.248, everything else held equal; similar interpretations follow for the other options of first programming language. However, none of these coefficents were found to be statisically significant at 5%, a potential reason for this could be our limited sample size.
+The first programming language that a person learned has a varying impact impact on whether they prefer `R` or `Python`, for a data analysis task. For example, if a person learned `Python` first, the log-odds that they prefer `Python` over `R` increase by 1.248, everything else held equal; similar interpretations follow for the other options of first programming language. However, none of these coefficents were found to be statistically significant at 5%, a potential reason for this could be our limited sample size.
 
 ### Discussion of Survey  
-**TODO**
 
+This survey's results could have been much clearer, however our logistic regression model classified the confounding variables to the best of its abilities when given the survey data we recieved. In retrospect, for this analysis to have a more clear answer in finding our confounding variables, it should have been critical to have more than 50 responses. The lack of responses made some of our visualizations have gaps which made it difficult to have great EDA analysis. 
+
+Another aspect we would choose to improve our survey on would be to reduce the number of the number of categories in the questions asked because having multiple categories resulted in very small stratifications (as we had a small sample size). Of the tasks we did well was to use logistic regression and make use of the many categorical variables we had in our survey responses. The model read that one of the most confounding variable was whether the respondent believed a language had good documentation with relation to which language they preferred, no matter their history with either language. 
