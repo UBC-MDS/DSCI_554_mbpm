@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r, include=FALSE }
 library(tidyverse)
+library(stringr)
 ```
 
 
@@ -37,7 +38,7 @@ Importing Data and Data Wrangling
 
 ```{r, include=FALSE}
 # Import data
-raw <- read_csv("https://raw.github.ubc.ca/MDS-2018-19/DSCI_554_R2Py2_results/master/DSCI_554_R2Py2.csv?token=AAAGiR15X4PWpGVkb0ojAtjTWSq1Sppwks5csTi9wA%3D%3D")
+raw <- read_csv("https://raw.github.ubc.ca/MDS-2018-19/DSCI_554_R2Py2_results/master/DSCI_554_R2Py2.csv?token=AAAGiShPbCPtAwj8rhfn8namF5_tbtrSks5cu4slwA%3D%3D")
 
 
 # Data wrangle 
@@ -71,7 +72,7 @@ q1 <- round(prop.table(q1), digits=2)
 q1  
 
 ```
-65% of respondents preferred using Python vs R for data analysis. 
+65% of respondents preferred using Python vs preferred using R (35%) for data analysis. 
 
 
 Q2 What is the first computing language you learned?
@@ -82,7 +83,7 @@ q2 <- round(prop.table(q2), digits=2)
 q2  
 
 ```
-Majority of the survey respondents were split between C/C++/C#, Other and Python at 20% as the first programming language used.
+Majority of the survey respondents were split between C/C++/C#, Other and Python at 20% as the first programming language used. Javascript was at 18% as the second highest with R, SQL, VB and HTML all below 10%.  This data also indicates C/C++/C# and other as a possible confounders to our analysis.  Overall, approximately twice the number of respondants learned Python over R.  
 
 
 Q3 What was your undergraduate degree in?
@@ -93,8 +94,7 @@ q3 <- round(prop.table(q3), digits=2)
 q3  
 
 ```
-50% of the respondents had an undergraduate degree in either Math/Statstics or Other Science at 25% each.
-
+50% of the respondents had an undergraduate degree in either Math/Statstics (25%) or Other Science (25%). Engineering was 2nd with 22% with the remaining under 13$.  This coincides with Math/Statistics, Other Science and Engineering as possible reasons as to whyC/C++/C#, Other and Python were the 1st programming languages learned. 
 
 Q4 What is the typical size of your analysis projects? Small(10K rows), Medium(10-1M rows), or large (1m+ rows)?
 ```{r}
@@ -104,7 +104,7 @@ q4 <- round(prop.table(q4), digits=2)
 q4  
 
 ```
-Over half of the respondents had experience with small analysis projects.
+Over half of the respondents had experience with small analysis projects with 10K rows of data or less, while 36% of respondents worked on analysis projects of medium sizes (10K to 1M rows of data).  This could coincide with Python as the the 1st programming language learned with data analysis projects.
 
 
 Q5 Which language do you think has better documentation when it comes to its data analysis packages?
@@ -115,7 +115,7 @@ q5 <- round(prop.table(q5), digits=2)
 q5  
 
 ```
-A large proportion of respondents (64%) believed Python had better documentation.
+A large proportion of respondents (64%) believed Python had better documentation than R (36%). With python being higher than R with the 1st programming learned, this could explain the difference in opinions on documentation preferences.
 
 
 
