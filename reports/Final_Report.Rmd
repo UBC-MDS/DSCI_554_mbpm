@@ -1,0 +1,150 @@
+---
+title: "Python vs. R"
+date: "April 13, 2019"
+output: github_document
+---  
+
+```{r, Setup, include=FALSE }
+library(tidyverse)
+library(broom)
+```
+
+### Analysis Question  
+
+Python and R are the two dominate Data Science programming languages, we set out determine how people's background influenced their choice. In particular we wanted to answer the following question:  
+
+> _Does the first programming language learned influence whether someone prefers Python or R when it comes to data analysis?_  
+
+### Potentinal Confounders  
+
+We identified the following potential counfounding variables:  
+
+1. What was your undergraduate degree in?  
+    - Someone's educational background could have a large influence on their preferred programming language. 
+2. What is the typical size of your analysis projects? Small(10Krows), Medium(10-1M rows), or large (1m+ rows)?  
+    - The size of a data analysis project might influence the language a person tends to use because of differences in speed and efficiency.
+3. Which language do you think has better documentation when it comes to its data analysis packages?  
+    - Having clear and concise documentation aids in the ease of wrangling data and decreases the learning curve of the language. The user might tend to prefer the language they believe has better documentation.  
+    
+### Exploratory Data Analysis  
+
+```{r, load_clean_data, include=FALSE}
+# Import data
+raw <- read_csv("https://raw.github.ubc.ca/MDS-2018-19/DSCI_554_R2Py2_results/master/DSCI_554_R2Py2.csv?token=AAAGaBhZe0kKbU2TUsf0Zd5rY6KxyKDuks5cuz3vwA%3D%3D")
+
+
+# Data wrangle 
+survey <- raw %>% 
+  slice(-c(1:2)) %>% 
+  select(contains("Q")) %>% 
+  mutate(Q4=str_extract(Q4, "(^[A-Za-z]+)")) %>% 
+  mutate(Q1 = as.factor(Q1),
+         Q2 = as.factor(Q2),
+         Q3 = as.factor(Q3),
+         Q4 = as.factor(Q4),
+         Q5 = as.factor(Q5))
+
+survey <- as.data.frame(survey)
+```  
+
+##### Summary of survey results:  
+
+```{r summary, echo=FALSE}
+survey_summary <- summary(survey)
+survey_summary
+```  
+
+
+```{r preferredLang, echo = FALSE}
+#plots
+plot1<-survey %>% ggplot(aes(x = Q1)) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), width = 0.5, fill = 'salmon') +
+  geom_text(aes(y = ((..count..)/sum(..count..)),
+                label = scales::percent((..count..)/sum(..count..))),
+            stat = "count", vjust = -0.25, width = 0.5) +
+  theme_bw() +
+  labs(title = 'Which Language is more prefered for Data Analysis?',
+       x = 'Language',
+       y='%') 
+plot1
+```  
+
+65% of respondents preferred using Python vs R for data analysis.More people prefer python  
+
+```{r firstLang, echo=FALSE}
+plot2<-survey %>% ggplot(aes(x = Q2)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "What was the first computing language you learned?",
+       x = 'Language',
+       y = 'Count')+
+  coord_flip()
+plot2
+```
+
+Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R. Majority of the survey respondents were split between C/C++/C#, Other and Python at 20% as the first programming language used.
+
+```{r undergrad, echo=FALSE}
+plot3<-survey %>% ggplot(aes(x = Q3)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "What is your undergraduate degree in?",
+       x = 'Major',
+       y = 'Count')
+plot3
+```  
+
+Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 50% of the respondents had an undergraduate degree in either Math/Statstics or Other Science at 25% each.
+
+```{r size, echo=FALSE}
+plot4<-survey %>% ggplot(aes(x = Q4)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "What is the size of your typical data set?",
+       x = 'Size',
+       y = 'Count')
+plot4
+```  
+
+It seems more people prefer python no matter the size of the data set
+
+```{r docs, echo=FALSE}
+plot5<-survey %>% ggplot(aes(x = Q5)) +
+  geom_bar(aes(fill = Q1), stat = 'count') +
+  theme_bw() +
+  scale_fill_discrete("Prefers:") +
+  labs(title = "Which language has better documentation of data analysis packages??",
+       x = 'Language',
+       y = 'Count')
+plot5
+```
+
+It seems highly correlated that people prefer to choose the language that they believe has better documentation. Over half of the respondents had experience with small analysis projects.x 
+
+### Analysis  
+
+```{r Analysis, echo=FALSE}
+
+dev_langs = c("C/C++/C#", "Java/JavaScript")
+web_dev_langs = c("HTML/XML/CSS", "Visual Basic/VBA", "SQL")
+
+survey <- survey %>% 
+  mutate(Q2 = ifelse(Q2 %in% dev_langs, "dev_lang", ifelse(Q2 %in% web_dev_langs, "web_dev_lang", as.character(Q2)))) %>% 
+  mutate(Q3 = ifelse(Q3 == "Other Science", "Other", as.character(Q3))) %>% 
+  mutate(Q2 = as.factor(Q2)) %>% 
+  mutate(Q3 = as.factor(Q3))
+
+
+log_reg <- glm(Q1 ~ Q2 + Q5 , family = "binomial", data = survey)
+log_reg %>% tidy()
+```  
+
+### Discussion of Results  
+**TODO**  
+
+### Discussion of Survey  
+**TODO**
+
