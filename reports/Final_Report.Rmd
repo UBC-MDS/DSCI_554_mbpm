@@ -69,34 +69,35 @@ plot1<-survey %>% ggplot(aes(x = Q1)) +
 plot1
 ```  
 
-65% of respondents preferred using Python vs R for data analysis.More people prefer python  
+65% of respondents preferred using Python vs R for data analysis. More people prefer python.  
 
 ```{r firstLang, echo=FALSE}
-plot2<-survey %>% ggplot(aes(x = Q2)) +
-  geom_bar(aes(fill = Q1), stat = 'count') +
+plot2<- ggplot(survey, aes(x=Q2, y=Q1) ) +
+  geom_bin2d() +
+  facet_grid(~Q5)+
   theme_bw() +
-  scale_fill_discrete("Prefers:") +
-  labs(title = "What was the first computing language you learned?",
+  labs(title = "First computing language you learned", 
+      subtitle = 'Grouped by language with better documented packages',
        x = 'Language',
-       y = 'Count')+
-  coord_flip()
+       y = 'Preference')
 plot2
+	
 ```
 
-Those that learned Java/Javascript/HTML/CSS seem to all prefer python over R. Majority of the survey respondents were split between C/C++/C#, Other and Python at 20% as the first programming language used.
+Those that learned a `dev_lang` (contains C/C++/C#/Java/Javascript) seem to almost always prefer python over R. Majority of the survey respondents were split between those that learned Python and `web_dev_lang` languages first first. As this heatmap was faceted with which language people believe have vetter documentation, this seems to show that more people prefer the language they believe have better documentation (the majority in this case, is Python).
 
 ```{r undergrad, echo=FALSE}
-plot3<-survey %>% ggplot(aes(x = Q3)) +
-  geom_bar(aes(fill = Q1), stat = 'count') +
+plot3<- ggplot(survey, aes(x=Q3, y=Q1) ) +
+  geom_bin2d() +
   theme_bw() +
-  scale_fill_discrete("Prefers:") +
   labs(title = "What is your undergraduate degree in?",
        x = 'Major',
-       y = 'Count')
+       y = 'Preference')
 plot3
+
 ```  
 
-Those with a CS background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 50% of the respondents had an undergraduate degree in either Math/Statstics or Other Science at 25% each.
+Those with a Business, Math/Statistics/ or Computer Science background always prefer Python, those with Sciences/Other degrees seem to prefer R over Python. 
 
 ```{r size, echo=FALSE}
 plot4<-survey %>% ggplot(aes(x = Q4)) +
@@ -122,7 +123,7 @@ plot5<-survey %>% ggplot(aes(x = Q5)) +
 plot5
 ```
 
-It seems highly correlated that people prefer to choose the language that they believe has better documentation. Over half of the respondents had experience with small analysis projects.x 
+It seems highly correlated that people prefer to choose the language that they believe has better documentation. Over half of the respondents had experience with small analysis projects.
 
 ### Analysis  
 
