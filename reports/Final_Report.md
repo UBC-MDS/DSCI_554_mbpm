@@ -105,17 +105,7 @@ log_reg %>% tidy() %>% kable()
 | Q4Small            |    0.0002643 |    1.3585590 |   0.0001946 | 0.9998448 |
 | Q5R                |    2.5108564 |    0.8839316 |   2.8405552 | 0.0045035 |
 
-Our initial approach to analyzing the survey results was to just use a
-logisitc regression with all the avaliable variables. However, from our
-EDA we suspected that some of our identified confounding variables were
-not going to be significant because there was not a lot of distinction
-between preferred language and levels of those the confounding
-variables. As a note, we reduce the number of categories for certain
-variables because they contained very few sample data points. After
-looking at the results of the logistic regression our assumptions were
-confirmed. Everything besides “Which language has better package
-documentation” was found to be insignifican at a 5% significance
-level.
+Our initial approach for analyzing the survey results was to use a logistic regression with all the available variables. However, from our EDA we suspected that some of the identified confounding variables were not significant. This was because there was very little distinction between the preferred language and the levels of the confounding variables. Additionally, we reduced the number of categories for specific variables because they contained very few sample data points. After looking at the results of the logistic regression ,our assumptions had been confirmed. Everything besides “Which language has better package documentation” was found to be insignificant with a 5% significance level.   
 
 ##### Feature Selection
 
@@ -132,10 +122,7 @@ anova(log_reg1, test="Chisq") %>% kable()
 | Q3   |  4 |  7.2702077 |        45 |   47.59021 | 0.1222796 |
 | Q4   |  2 |  0.3799394 |        43 |   47.21027 | 0.8269842 |
 
-We deciced to then use a forward variable selection technique to
-determine what to use in our final model. Evident in the table above it
-appears the best model to use is `Q1 ~ Q2 + Q5`, even though \``Q1 ~ Q2`
-is not significant on its own.
+We decided with a forward variable selection technique to determine which variables to use in our final model.  As seen in the  table above, the best model to use was Q1 ~ Q2 + Q5, even though Q1 ~ Q2 is not significant on its own.   
 
 ##### Final Model
 
@@ -153,31 +140,11 @@ log_reg2 %>% tidy() %>% kable()
 | Q2web\_dev\_lang |   0.1381003 | 1.1228093 |   0.1229953 | 0.9021108 |
 | Q5R              |   2.1355124 | 0.6817439 |   3.1324260 | 0.0017337 |
 
-The first programming language that a person learned has a varying
-impact impact on whether they prefer `R` or `Python`, for a data
-analysis task. For example, if a person learned `Python` first, the
-log-odds that they prefer `Python` over `R` increase by 1.248,
-everything else held equal; similar interpretations follow for the other
-options of first programming language. However, none of these
-coefficents were found to be statistically significant at 5%, a
-potential reason for this could be our limited sample size.
-
+The first programming language a person learns has various  impacts on whether they prefer R or Python for data analysis tasks. For example, if a person learned Python first, the log-odds that they prefer Python over R increase by 1.248, everything else held equal; similar interpretations follow the other options for the first programming language. However, none of these coefficients were found to be statistically significant at 5%.  A potential reason for this could be due to our limited sample size.   
+   
 ### Discussion of Survey
-
-This survey’s results could have been much clearer, however our logistic
-regression model classified the confounding variables to the best of its
-abilities when given the survey data we recieved. In retrospect, for
-this analysis to have a more clear answer in finding our confounding
-variables, it should have been critical to have more than 50 responses.
-The lack of responses made some of our visualizations have gaps which
-made it difficult to have great EDA analysis.
-
-Another aspect we would choose to improve our survey on would be to
-reduce the number of the number of categories in the questions asked
-because having multiple categories resulted in very small
-stratifications (as we had a small sample size). Of the tasks we did
-well was to use logistic regression and make use of the many categorical
-variables we had in our survey responses. The model read that one of the
-most confounding variable was whether the respondent believed a language
-had good documentation with relation to which language they preferred,
-no matter their history with either language.
+   
+Our survey’s results could have been much clearer. However, our logistic regression model classified the confounding variables as best as possible, given the survey data we received. In retrospect, for this analysis to have a more interpretable result in order to distinguish the confounding variables, the survey should have been more critical for having more than 50 responses. The lack of responses made some of our visualizations display ‘gaps’ which made it much more difficult to have a clearer EDA analysis.    
+    
+An additional aspect we could have chosen to improve our survey would be to reduce the number of categories for the questions asked. This unfortunately resulted in having multiple categories which further resulted in very small stratifications (due to the small sample size). The tasks we did well on were the use of logistic regression and the use of the many categorical variables we had in our survey responses. One of the most confounding variable discovered from our model was whether the respondent believed the language had good documentation in relation to the language they preferred, no matter what their history was with either language.     
+    
