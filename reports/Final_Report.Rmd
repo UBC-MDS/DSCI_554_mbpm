@@ -14,7 +14,7 @@ options(knitr.table.format = 'markdown')
 
 ### Analysis Question  
 
-Python and R are the two dominate Data Science programming languages, we set out to determine how people's background influenced their choice. In particular we wanted to answer the following question:  
+Python and R are the two dominant Data Science programming languages, we set out to determine how people's background influenced their choice. In particular, we wanted to answer the following question:  
 
 > _Does the first programming language learned influence whether someone prefers Python or R when it comes to data analysis?_  
 
